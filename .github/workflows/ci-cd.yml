@@ -32,5 +32,5 @@ jobs:
       # 5. Buduj i wypychaj obraz dla express-server
       - name: Build and push backend
         run: |
-          docker build -t 10.10.10.154:30002/express-server:latest ./express-server
-          docker push 10.10.10.154:30002/express-server:latest
+          docker build -t 10.10.10.154:30002/authapp/express-server:latest ./express-server
+          docker push 10.10.10.154:30002/authapp/express-server:latest
