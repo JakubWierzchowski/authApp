@@ -8,9 +8,15 @@ app.use(cors());
 
 let isAuthenticated = false;
 
+const credentials = {
+  username: 'admin',
+  password: 'password' 
+};
+
+
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  if (username === 'admin' && password === 'password') {
+  const { username, pass } = req.body;
+  if (username === 'admin' && pass === credentials.password) {
     isAuthenticated = true;
     return res.status(200).json({ message: 'Logged in' });
   }

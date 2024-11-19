@@ -10,26 +10,20 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # 1. Sprawdź kod z repozytorium
       - name: Checkout code
         uses: actions/checkout@v3
-
-      # 2. Skonfiguruj Docker Buildx
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
-      # 3. Zaloguj się do Harbora
       - name: Log in to Harbor
         run: |
           echo "1qaz@WSX" | docker login -u "admin" --password-stdin 10.10.10.154:30002
 
-      # 4. Buduj i wypychaj obraz dla frontend
       - name: Build and push frontend
         run: |
           docker build -t 10.10.10.154:30002/authapp/frontend:latest ./frontend
           docker push 10.10.10.154:30002/authapp/frontend:latest
 
-      # 5. Buduj i wypychaj obraz dla express-server
       - name: Build and push backend
         run: |
           docker build -t 10.10.10.154:30002/authapp/express-server:latest ./express-server
