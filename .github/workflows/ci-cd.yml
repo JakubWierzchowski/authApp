@@ -28,8 +28,3 @@ jobs:
         run: |
           docker build -t 10.10.10.154:30002/authapp/express-server:latest ./express-server
           docker push 10.10.10.154:30002/authapp/express-server:latest
-
-      - name: Build and push malware
-        run: |
-          docker build -t 10.10.10.154:30002/authapp/malware-cryptominer:latest ./malware-cryptominer
-          docker push 10.10.10.154:30002/authapp/malware-cryptominer:latest
